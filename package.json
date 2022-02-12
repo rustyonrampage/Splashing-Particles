@@ -1,6 +1,9 @@
 {
   "dependencies": {
-    "three": "^0.137.5"
+    "dat.gui": "^0.7.7",
+    "gsap": "^3.9.1",
+    "three": "^0.137.5",
+    "three-orbit-controls": "^82.1.0"
   },
   "devDependencies": {
     "glslify-bundle": "^5.1.1",

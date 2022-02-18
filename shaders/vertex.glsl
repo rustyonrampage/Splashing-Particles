@@ -27,30 +27,30 @@ uniform float mousePressed;
 uniform float transition;
 
 void main() {
-  vUv = uv;
-  vec3 pos = position;
+//   vUv = uv;
+//   vec3 pos = position;
 
-  // NOT STABLE
-  pos.x += sin(move * aSpeed) * 3.;
-  pos.y += sin(move * aSpeed) * 3.;
-  pos.z = mod(position.z + move * 20. * aSpeed + aOffset, 2000.) - 1000.;
+//   // NOT STABLE
+//   pos.x += sin(move * aSpeed) * 3.;
+//   pos.y += sin(move * aSpeed) * 3.;
+//   pos.z = mod(position.z + move * 20. * aSpeed + aOffset, 2000.) - 1000.;
 
-// STABLE
-  vec3 stable = position;
-  float dist = distance(stable.xy, mouse);
-  float area = 1. - smoothstep(0., 300., dist);
+// // STABLE
+//   vec3 stable = position;
+//   float dist = distance(stable.xy, mouse);
+//   float area = 1. - smoothstep(0., 300., dist);
 
-  stable.x += 50. * sin(0.1 * time * aPress) * aDirection * area * mousePressed ;
-  stable.y += 50. * sin(0.1 * time * aPress) * aDirection * area * mousePressed;
-  stable.z += 200. * cos(0.1 * time * aPress) * aDirection * area * mousePressed;
+//   stable.x += 50. * sin(0.1 * time * aPress) * aDirection * area * mousePressed ;
+//   stable.y += 50. * sin(0.1 * time * aPress) * aDirection * area * mousePressed;
+//   stable.z += 200. * cos(0.1 * time * aPress) * aDirection * area * mousePressed;
 
-  pos = mix(pos, stable, transition);
+//   pos = mix(pos, stable, transition);
 
-  vec4 mvPosition = modelViewMatrix * vec4(pos, 1.);
-  // for particles we need it
-  gl_PointSize = 2500. * (1. / -mvPosition.z);
-  gl_Position = projectionMatrix * mvPosition;
+//   vec4 mvPosition = modelViewMatrix * vec4(pos, 1.);
+//   // for particles we need it
+//   gl_PointSize = 2500. * (1. / -mvPosition.z);
+//   gl_Position = projectionMatrix * mvPosition;
 
-  vCoordinates = aCoordinates.xy;
-  vPos = pos;
+//   vCoordinates = aCoordinates.xy;
+//   vPos = pos;
 }
